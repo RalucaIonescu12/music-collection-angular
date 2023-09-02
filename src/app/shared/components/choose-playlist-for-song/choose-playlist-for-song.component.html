@@ -1,0 +1,13 @@
+<!-- playlist-dialog.component.html -->
+
+<h2>Select a Playlist</h2>
+
+<!-- Example: List of playlists with radio buttons -->
+<div *ngFor="let playlist of playlists">
+  <label>
+    <input type="radio" name="selectedPlaylist" (change)="selectPlaylist(playlist.id)" />
+    {{ playlist.name }}
+  </label>
+</div>
+
+<button mat-raised-button (click)="dialogRef.close()">Cancel</button>

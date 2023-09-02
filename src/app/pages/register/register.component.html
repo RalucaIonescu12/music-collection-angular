@@ -1,0 +1,36 @@
+<mat-card class="login-card">
+  <mat-card-header >
+    <mat-card-title style="padding-top: 5vh;">Register  to  Your Music Collection!</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="registerForm" class="login-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput
+               [type]="hide ? 'password' : 'text'"
+               formControlName="password" />
+        <button mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-raised-button class="login-button" (click)="checkForm()">
+        Register
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

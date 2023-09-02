@@ -1,0 +1,40 @@
+.login-card {
+  width: 50vw;
+  margin: 0 auto;
+  text-align: center;
+  height: 90vh;
+  background-color: rgb(249, 223, 188);
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.login-form {
+  display: flex;
+  padding-top: 10vh;
+  flex-direction: column;
+}
+
+.mat-form-field {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.login-button {
+  background-color: #007bff;
+  color: white;
+  margin-top: 5vh;
+  width: 20vw;
+  margin: 0 auto;
+  font-size:20px;
+}
+
+  .login-button:hover {
+    background-color: #808080;
+  }
+
+mat-card-title {
+  font-size: 35px; 
+  text-align: center;
+  width: 100%;
+}

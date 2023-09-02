@@ -1,0 +1,37 @@
+.login-card {
+  width: 50vw;
+  margin: 0 auto;
+  text-align: center;
+  height: 90vh;
+  background-color: rgb(249, 223, 188);
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+mat-card-title {
+  font-size: 35px;
+  text-align: center;
+  width: 100%;
+}
+
+
+.custom-button {
+  font-size: 30px;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 15px;
+  height:10vh;
+  width:30vw;
+}
+
+  .custom-button[color="primary"] {
+    background-color: rgb(243, 81, 164);
+    color: white;
+
+   
+  }
+
+  .custom-button[color="accent"] {
+    background-color: rgb(243, 81, 164);
+    color: white;
+  }
