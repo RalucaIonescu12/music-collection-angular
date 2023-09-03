@@ -11,7 +11,8 @@ let componentsArray = [MyPlaylistsComponent, BrowseSongsComponent]
   declarations: componentsArray,
   exports: componentsArray,
   imports: [
-    CommonModule
+    CommonModule,
+    
   ]
 })
 export class ComponentsModule { }

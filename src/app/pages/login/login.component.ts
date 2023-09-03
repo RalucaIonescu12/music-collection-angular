@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AccountService } from '../../core/services/account.service';
 import { RegisterService } from '../../core/services/register.service';
 
 
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
   public value = '2';
 
   constructor(private readonly formBuilder: FormBuilder,
-    private accountService: RegisterService,
+    private registerService: RegisterService,
+    private accountService: AccountService,
     private router: Router
   ) { }
 
@@ -37,13 +39,17 @@ export class LoginComponent implements OnInit {
 
     const accountData = this.registerForm.value;
     
-    this.accountService.loginUser(accountData).subscribe(
+    this.registerService.loginUser(accountData).subscribe(
       (response2) => {
         const token = response2?.token;
         console.log('toke : ', token);
         if (token) {
           localStorage.setItem('token', token);
-          this.router.navigate(['/menu']);
+          this.accountService.setUserData(accountData);
+          this.accountService.setUserId(response2?.id);
+          this.accountService.setName(response2?.name);
+          console.log(this.accountService.getUserId(), " aha", this.accountService.getUserData());
+               this.router.navigate(['/menu']);
         }
       },
       (error) => {

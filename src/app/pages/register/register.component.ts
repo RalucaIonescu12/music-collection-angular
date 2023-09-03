@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AccountService } from '../../core/services/account.service';
 import { RegisterService } from '../../core/services/register.service';
 
 
@@ -24,7 +25,8 @@ export class RegisterComponent implements OnInit {
   public value = '2';
 
   constructor(private readonly formBuilder: FormBuilder,
-    private accountService: RegisterService,
+    private registerService: RegisterService,
+    private accountService: AccountService,
     private router: Router 
   ) { }
 
@@ -36,17 +38,20 @@ export class RegisterComponent implements OnInit {
     this.getFormValidationError(['userName', 'email']);
 
     const accountData = this.registerForm.value;
-    this.accountService.createUser(accountData).subscribe(
+    this.registerService.createUser(accountData).subscribe(
       (response) => {
         console.log('User created successfully:', response);
 
-        this.accountService.loginUser(accountData).subscribe(
+        this.registerService.loginUser(accountData).subscribe(
           (response2) => {
             const token = response2?.token;
             console.log('toke : ', token);
+            console.log('account : ', response2.id);
             if (token) {
               localStorage.setItem('token', token);
-              this.router.navigate(['/menu']);
+              this.accountService.setUserData(accountData);
+              this.accountService.setUserId(response2?.id);
+           this.router.navigate(['/menu']);
             }
           },
           (error) => {

@@ -1,1 +1,27 @@
-<p>my-account works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>User Profile</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div style="padding-top:5vh;">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input [(ngModel)]="name" matInput>
+      </mat-form-field>
+    </div>
+    <div style="padding-top:5vh;">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input [(ngModel)]="userData.email" matInput>
+      </mat-form-field>
+    </div>
+    <div style="display:flex; flex-direction:column">
+      <div  style="padding-top:5vh;">
+        <button mat-raised-button style="background-color: rgb(243, 81, 164); height: 8vh; width: 30vw">Save Profile Changes</button>
+      </div>
+      <div style="padding-top:5vh;">
+        <button mat-raised-button style="background-color: rgb(243, 81, 164); height: 8vh; width: 30vw;">Logout</button>
+        </div>
+      </div>
+</mat-card-content>
+</mat-card>

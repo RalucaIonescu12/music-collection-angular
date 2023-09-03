@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './pages/register/register.component';
 
 import { AdminModule } from './pages/admin/admin.module';
-import { MatCardModule } from '@angular/material/card';
+import {  MatCardModule } from '@angular/material/card';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -27,14 +27,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MenuPageComponent } from './shared/components/menu-page/menu-page.component';
 import { MyPlaylistsComponent } from './shared/components/my-playlists/my-playlists.component';
 import { MatTableModule } from '@angular/material/table';
-import { BrowseSongsComponent } from './shared/components/browse-songs/browse-songs.component';
 import { FirstPageComponentComponent } from './pages/first-page-component/first-page-component.component';
 
 import { MyAccountComponent } from './shared/components/my-account/my-account.component';
 import { LoginComponent } from './pages/login/login.component';
 
-import { ChoosePlaylistForSongComponent } from './shared/components/choose-playlist-for-song/choose-playlist-for-song.component';
-import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { BrowseSongsComponent } from './shared/components/browse-songs/browse-songs.component';
+import { MatDialogModule } from '@angular/material/dialog';
 //directives
 
 //interceptors
@@ -53,7 +52,6 @@ import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dial
     FirstPageComponentComponent,
     MyAccountComponent,
     LoginComponent,
-    ChoosePlaylistForSongComponent
   ],
 
   imports: [
@@ -62,19 +60,16 @@ import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dial
     BrowserAnimationsModule,
     AdminModule,
     MatCardModule,
-    MatCardModule,
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
-    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatTabsModule,
     MatTableModule,
-    MatDialogRef,
     MatDialogModule,
-    MatDialog
+    FormsModule,
   
   ],
   providers: [
