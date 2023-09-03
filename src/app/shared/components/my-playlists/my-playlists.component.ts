@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { PlaylistsService } from '../../../core/services/playlists.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class MyPlaylistsComponent implements OnInit {
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
   showMessage: boolean = false; 
 
-  constructor(private service: PlaylistsService) { }
+  constructor(private service: PlaylistsService, private router: Router) { }
 
   ngOnInit(): void {
     this.showMessage = false;
@@ -31,5 +32,8 @@ export class MyPlaylistsComponent implements OnInit {
   showMessageForRow(row: any) {
     this.showMessage = true;
   
+  }
+  viewPlaylist(playlistId: string) {
+    this.router.navigate(['/playlist', playlistId]);
   }
 }

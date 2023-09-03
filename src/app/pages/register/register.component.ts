@@ -46,11 +46,14 @@ export class RegisterComponent implements OnInit {
           (response2) => {
             const token = response2?.token;
             console.log('toke : ', token);
+            localStorage.setItem('userRole', response?.role); 
+
             console.log('account : ', response2.id);
             if (token) {
               localStorage.setItem('token', token);
               this.accountService.setUserData(accountData);
               this.accountService.setUserId(response2?.id);
+              this.accountService.setName(response2?.name);
            this.router.navigate(['/menu']);
             }
           },

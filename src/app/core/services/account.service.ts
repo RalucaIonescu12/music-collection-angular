@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,9 +9,9 @@ export class AccountService {
 
   private userId: any;
   private name: any;
-  private userData: any; // Define a proper interface or model for user data.
+  private userData: any; 
 
-  constructor() { }
+  constructor(private http: HttpClient)  { }
 
   setUserId(userId: string) {
     this.userId = userId;
@@ -33,6 +34,12 @@ export class AccountService {
 
   getUserData(): any {
     return this.userData;
+  }
+  updateName(userId: string, name: string): Observable<any> {
+    const url = `https://localhost:7263/api/Accounts/${userId}`;
+    const body = { name }; 
+    this.name = name;
+    return this.http.put(url, body);
   }
 
 

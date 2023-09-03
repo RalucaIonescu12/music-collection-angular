@@ -1,0 +1,64 @@
+<div style="border-radius: 16px;display: flex; height: 99vh; width: 100vw; background-color: rgb(249, 223, 188);">
+
+    <mat-card class="profile-card">
+      <mat-card-header>
+        <mat-card-title>Playlist Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div style="padding-top: 5vh; ">
+          <mat-form-field appearance="outline" style="height: 10vh; width: 30vw">
+            <mat-label>Name</mat-label>
+            <input [(ngModel)]="playlist.name" matInput>
+          </mat-form-field>
+        </div>
+        <div style="padding-top: 5vh;">
+          <mat-form-field appearance="outline" style="height: 35vh; width: 30vw">
+            <mat-label>Description</mat-label>
+            <textarea [(ngModel)]="playlist.description" matInput rows="5"></textarea>
+          </mat-form-field>
+        </div>
+        <div style="padding-top: 5vh; height: 10vh;font-size:5vh">
+           {{ songsCount }} Songs
+        </div>
+        <div style="display: flex; flex-direction: column; padding-top: 5vh;">
+          <button  (click)="updatePlaylist()" mat-raised-button style="background-color: rgb(243, 81, 164); height: 8vh; width: 30vw">
+            Save Playlist Changes
+          </button>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="elevated-card songs-card">
+      <mat-card-content>
+        <div style="height: 90vh; overflow: auto;">
+          <div *ngIf="showMessage; else tableContent">
+            <p>Row clicked! Display your message here.</p>
+          </div>
+          <ng-template #tableContent>
+            <table mat-table [dataSource]="songs$" style="width: 100%;" class="mat-elevation-z8">
+              <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef>Song Title</th>
+                <td mat-cell *matCellDef="let item">{{ item.title }}</td>
+              </ng-container>
+              <ng-container matColumnDef="artist">
+                <th mat-header-cell *matHeaderCellDef>Artist</th>
+                <td mat-cell *matCellDef="let item">{{ item.artistName }}</td>
+              </ng-container>
+              <ng-container matColumnDef="released">
+                <th mat-header-cell *matHeaderCellDef>Released</th>
+                <td mat-cell *matCellDef="let item">{{ item.releaseDate | date: 'yyyy-MM-dd' }}</td>
+              </ng-container>
+              <ng-container matColumnDef="duration">
+                <th mat-header-cell *matHeaderCellDef>Duration</th>
+                <td mat-cell *matCellDef="let item">{{ item.duration }}</td>
+              </ng-container>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            </table>
+          </ng-template>
+          </div>
+      </mat-card-content>
+    </mat-card>
+
+  </div>

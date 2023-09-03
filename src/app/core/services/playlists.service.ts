@@ -14,12 +14,25 @@ export class PlaylistsService {
   getPlaylistsList(): Observable<any[]> {
     const userId = this.accoutnService.getUserId();
 
-    // Construct the URL with the user ID
     const url = `${this.apiUrl}/Playlists/get-playlists-for-account/${userId}`;
 
-    // Make the HTTP GET request
     return this.http.get<any[]>(url);
-}
+  }
+  getPlaylistById(playlistId: string): Observable<any> {
+    const url = `${this.apiUrl}/Playlists/${playlistId}`;
+    return this.http.get<any>(url);
+  }
+
+  getSongsForPlaylist(playlistId: string): Observable<any[]> {
+    const url = `${this.apiUrl}/Songs/get-songs-for-playlist/${playlistId}`;
+    return this.http.get<any[]>(url);
+  }
+  updatePlaylist(playlistId: string, description: string, name: string): Observable<any> {
+    const url = `https://localhost:7263/api/Playlists/${playlistId}`;
+    const body = { name , description};
+
+    return this.http.put(url, body);
+  }
 }
 
 

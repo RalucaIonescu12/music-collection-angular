@@ -8,6 +8,7 @@ import { BrowseSongsComponent } from './shared/components/browse-songs/browse-so
 import { MenuPageComponent } from './shared/components/menu-page/menu-page.component';
 import { MyAccountComponent } from './shared/components/my-account/my-account.component';
 import { MyPlaylistsComponent } from './shared/components/my-playlists/my-playlists.component';
+import { PlaylistInfoComponent } from './shared/components/playlist-info/playlist-info.component';
 
 const routes: Routes = [
   {
@@ -37,7 +38,12 @@ const routes: Routes = [
       { path: 'my-account', component: MyAccountComponent }
     ],
  
-  }
+  },
+  {
+    path: 'playlist/:id',
+    component: PlaylistInfoComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

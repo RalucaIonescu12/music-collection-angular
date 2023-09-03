@@ -34,6 +34,7 @@ import { LoginComponent } from './pages/login/login.component';
 
 import { BrowseSongsComponent } from './shared/components/browse-songs/browse-songs.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { PlaylistInfoComponent } from './shared/components/playlist-info/playlist-info.component';
 //directives
 
 //interceptors
@@ -52,6 +53,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     FirstPageComponentComponent,
     MyAccountComponent,
     LoginComponent,
+    PlaylistInfoComponent
   ],
 
   imports: [
@@ -78,7 +80,7 @@ import { MatDialogModule } from '@angular/material/dialog';
       useClass: ErrorInterceptor,
       multi:true
     }  ],
-  bootstrap: [AppComponent]
+      bootstrap: [AppComponent]
 })
 export class AppModule {
 

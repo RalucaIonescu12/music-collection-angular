@@ -1,0 +1,12 @@
+
+.profile-card {
+  flex: 1;
+  margin: 16px;
+  border-radius: 16px;
+}
+
+.songs-card {
+  flex: 2;
+  margin: 16px;
+  border-radius: 16px;
+}

@@ -48,6 +48,8 @@ export class LoginComponent implements OnInit {
           this.accountService.setUserData(accountData);
           this.accountService.setUserId(response2?.id);
           this.accountService.setName(response2?.name);
+          localStorage.setItem('userRole', response2?.role); 
+
           console.log(this.accountService.getUserId(), " aha", this.accountService.getUserData());
                this.router.navigate(['/menu']);
         }

@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card style="height:85vh">
   <mat-card-header>
     <mat-card-title>User Profile</mat-card-title>
   </mat-card-header>
@@ -17,10 +17,10 @@
     </div>
     <div style="display:flex; flex-direction:column">
       <div  style="padding-top:5vh;">
-        <button mat-raised-button style="background-color: rgb(243, 81, 164); height: 8vh; width: 30vw">Save Profile Changes</button>
+        <button mat-raised-button style="background-color: rgb(243, 81, 164); height: 8vh; width: 30vw" (click)="updateName()">Save Profile Changes</button>
       </div>
       <div style="padding-top:5vh;">
-        <button mat-raised-button style="background-color: rgb(243, 81, 164); height: 8vh; width: 30vw;">Logout</button>
+        <button mat-raised-button style="background-color: rgb(243, 81, 164); height: 8vh; width: 30vw;" (click)="logout()">Logout</button>
         </div>
       </div>
 </mat-card-content>
