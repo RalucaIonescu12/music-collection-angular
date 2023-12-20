@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable, of } from 'rxjs';
 import { SongsService } from '../../../core/services/songs.service';
+
 @Component({
   selector: 'app-browse-songs',
   templateUrl: './browse-songs.component.html',
@@ -42,6 +43,7 @@ export class BrowseSongsComponent implements OnInit {
     const modelDiv = document.getElementById('myModal');
     if (modelDiv != null) {
       modelDiv.style.display = "none";
-    }
+    
   }
+}
 }

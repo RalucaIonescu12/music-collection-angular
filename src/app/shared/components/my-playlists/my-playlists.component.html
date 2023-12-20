@@ -2,11 +2,12 @@
 <mat-card class="elevated-card" style="background-color: rgb(249, 223, 188); height: 85vh; padding-top: 5vh;">
   <mat-card class="profile-card" style="border-radius: 16px;">
     <mat-card-content>
-      <div style="height: 70vh; overflow: auto;">
+      <div style="height: 65vh; overflow: auto;">
         <div *ngIf="showMessage; else tableContent">
           <!-- Display your message here -->
           <p>Row clicked! Display your message here.</p>
         </div>
+        
         <ng-template #tableContent>
           <table mat-table [dataSource]="dataSource" style=" width:50vw" class="mat-elevation-z8">
             <ng-container matColumnDef="name">
@@ -40,6 +41,17 @@
           </table>
         </ng-template>
         </div>
+        <div style="height: 9vh;">
+          <button 
+            color="primary"
+             style="height: 9vh; width:92vw; background-color:rgb(243, 81, 164); color:white"
+             mat-raised-button 
+             (click)="openCreatePlaylistDialog()"
+             >
+            Create Playlist
+          </button>
+        </div>
     </mat-card-content>
+  
   </mat-card>
   </mat-card>

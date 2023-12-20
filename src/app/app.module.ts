@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatMenuModule } from '@angular/material/menu';
 //components
 import { RegisterComponent } from './pages/register/register.component';
 
@@ -33,8 +33,10 @@ import { MyAccountComponent } from './shared/components/my-account/my-account.co
 import { LoginComponent } from './pages/login/login.component';
 
 import { BrowseSongsComponent } from './shared/components/browse-songs/browse-songs.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { PlaylistInfoComponent } from './shared/components/playlist-info/playlist-info.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { CreatePlaylistFormComponent } from './shared/components/create-playlist-form/create-playlist-form.component';
 //directives
 
 //interceptors
@@ -53,7 +55,9 @@ import { PlaylistInfoComponent } from './shared/components/playlist-info/playlis
     FirstPageComponentComponent,
     MyAccountComponent,
     LoginComponent,
-    PlaylistInfoComponent
+    PlaylistInfoComponent,
+    CreatePlaylistFormComponent,
+
   ],
 
   imports: [
@@ -72,7 +76,9 @@ import { PlaylistInfoComponent } from './shared/components/playlist-info/playlis
     MatTableModule,
     MatDialogModule,
     FormsModule,
-  
+    MatMenuModule,
+    MatExpansionModule,
+   
   ],
   providers: [
     {

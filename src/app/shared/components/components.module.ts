@@ -6,10 +6,10 @@ import { MyPlaylistsComponent } from './my-playlists/my-playlists.component';
 import { BrowseSongsComponent } from './browse-songs/browse-songs.component';
 
 
-let componentsArray = [MyPlaylistsComponent, BrowseSongsComponent]
+// let componentsArray = []
 @NgModule({
-  declarations: componentsArray,
-  exports: componentsArray,
+  declarations: [],
+  exports: [],
   imports: [
     CommonModule,
     

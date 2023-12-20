@@ -33,6 +33,11 @@ export class PlaylistsService {
 
     return this.http.put(url, body);
   }
+  createPlaylist(playlistData: any): Observable<any> {
+    const userId = this.accoutnService.getUserId();
+    const url = `${this.apiUrl}/Playlists/${userId}`;
+    return this.http.post<any>(url, playlistData);
+  }
 }
 
 

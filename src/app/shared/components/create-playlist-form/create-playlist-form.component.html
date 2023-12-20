@@ -1,0 +1,26 @@
+<!-- playlist-form.component.html -->
+<div style="height: 80vh; width: 37vw; display: flex; flex-direction: column;">
+  <div style="padding-left: 30vh; padding-top: 3vh">
+      <h2>Create Playlist</h2>
+  </div>
+  <div style="padding-left: 12vh">
+      <mat-form-field style="width: 60vh" [ngClass]="{'error': !nameValid}">
+          <mat-label>Playlist Name</mat-label>
+          <input matInput [(ngModel)]="playlistName" placeholder="Enter playlist name" (input)="validateInputs('name')">
+          <div *ngIf="!nameValid" class="error-message">Max 30 characters</div>
+      </mat-form-field>
+
+      <mat-form-field style="width: 60vh; height: 45vh" [ngClass]="{'error': !descriptionValid}">
+          <mat-label>Playlist Description</mat-label>
+          <textarea style="height:30vh" matInput [(ngModel)]="playlistDescription" placeholder="Enter playlist description"
+              (input)="validateInputs('description')"></textarea>
+          <div *ngIf="!descriptionValid" class="error-message">Max 500 characters</div>
+      </mat-form-field>
+
+  </div>
+  <div style="padding-left: 7vw">
+      <button style="background-color: rgb(243, 81, 164); color: white; width: 12vw" mat-raised-button
+          color="primary" (click)="createPlaylist()" [disabled]="!isValid">Create Playlist</button>
+      <button style="width: 12vw; margin-left: 2vw;" mat-button (click)="closeDialog()">Cancel</button>
+  </div>
+</div>
