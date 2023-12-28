@@ -12,7 +12,9 @@ export class PlaylistsService {
 
 
   getPlaylistsList(): Observable<any[]> {
+  
     const userId = this.accoutnService.getUserId();
+    console.log(userId);
 
     const url = `${this.apiUrl}/Playlists/get-playlists-for-account/${userId}`;
 

@@ -1,0 +1,23 @@
+
+<div style="height: 85vh; width: 37vw; display: flex; flex-direction: column;">
+    <div style="padding-left: 28vh; padding-top: 3vh">
+        <h2>Choose a playlist:</h2>
+    </div>
+    <div style="height: 60vh; width:32vw; margin-left: 3vw; overflow: auto;">
+      <mat-selection-list #playlists [(ngModel)]="selectedPlaylistIds" multiple>
+        <mat-list-option *ngFor="let playlist of dataSource.data" [value]="playlist.id">
+            {{ playlist.name }}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-top: 3vh;margin-left:20vw;">
+      <button style="background-color: rgb(243, 81, 164); color: white; width: 20vw; " 
+              mat-raised-button
+              color="primary" 
+              (click)="addSongInPlaylist()">
+              Done
+      </button>
+      <button style="width: 20vw; margin-left: 3vw;" mat-button (click)="closeDialog()">Cancel</button>
+    </div>
+    </div>
+  

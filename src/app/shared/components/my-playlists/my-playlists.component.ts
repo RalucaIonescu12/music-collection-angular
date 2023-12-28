@@ -54,7 +54,7 @@ export class MyPlaylistsComponent implements OnInit {
       if (result) {
         // If result is not null, the user created a playlist
         console.log('Playlist data:', result);
-     
+      
       }
     });
   }

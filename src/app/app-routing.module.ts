@@ -44,6 +44,11 @@ const routes: Routes = [
     component: PlaylistInfoComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: '**',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatListModule, MatSelectionList } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,6 +37,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { PlaylistInfoComponent } from './shared/components/playlist-info/playlist-info.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { CreatePlaylistFormComponent } from './shared/components/create-playlist-form/create-playlist-form.component';
+import { AddSongToPlaylistDialogComponent } from './shared/components/add-song-to-playlist-dialog/add-song-to-playlist-dialog.component';
 //directives
 
 //interceptors
@@ -57,6 +58,7 @@ import { CreatePlaylistFormComponent } from './shared/components/create-playlist
     LoginComponent,
     PlaylistInfoComponent,
     CreatePlaylistFormComponent,
+    AddSongToPlaylistDialogComponent,
 
   ],
 
@@ -78,7 +80,7 @@ import { CreatePlaylistFormComponent } from './shared/components/create-playlist
     FormsModule,
     MatMenuModule,
     MatExpansionModule,
-   
+    MatListModule
   ],
   providers: [
     {

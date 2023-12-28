@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,8 +11,8 @@ export class AccountService {
   private userId: any;
   private name: any;
   private userData: any; 
-
-  constructor(private http: HttpClient)  { }
+  private isAuthenticated: boolean = false;
+  constructor(private http: HttpClient, private router:Router)  { }
 
   setUserId(userId: string) {
     this.userId = userId;
@@ -31,7 +32,12 @@ export class AccountService {
   setUserData(userData: any) {
     this.userData = userData;
   }
-
+  isAuthenticatedUser(): boolean {
+    
+    const token = localStorage.getItem('token');
+    this.isAuthenticated = !!token;
+    return this.isAuthenticated;
+  }
   getUserData(): any {
     return this.userData;
   }
@@ -41,6 +47,13 @@ export class AccountService {
     this.name = name;
     return this.http.put(url, body);
   }
-
+  logout() {
+  
+    this.isAuthenticated = false;
+    this.router.navigate(['/login']); 
+  }
+  redirectToLogin() {
+    this.router.navigate(['/login']);
+  }
 
 }

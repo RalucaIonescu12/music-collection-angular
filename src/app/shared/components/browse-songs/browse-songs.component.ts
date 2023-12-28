@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable, of } from 'rxjs';
 import { SongsService } from '../../../core/services/songs.service';
-
+import { AddSongToPlaylistDialogComponent } from '../add-song-to-playlist-dialog/add-song-to-playlist-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-browse-songs',
   templateUrl: './browse-songs.component.html',
@@ -16,7 +17,7 @@ export class BrowseSongsComponent implements OnInit {
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
   showMessage: boolean = false;
 
-  constructor(private service: SongsService) { }
+  constructor(private service: SongsService,private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.showMessage = false;
@@ -38,12 +39,20 @@ export class BrowseSongsComponent implements OnInit {
 
     console.log('Clicked on song with ID:', songId, 'and title: ', title);
   }
+  openAddToPlaylistDialog(id: string) {
+    const dialogRef = this.dialog.open(AddSongToPlaylistDialogComponent, {
+      width: '500px', 
+      data: { songId: id} 
+    });
 
-  CloseModal() {
-    const modelDiv = document.getElementById('myModal');
-    if (modelDiv != null) {
-      modelDiv.style.display = "none";
-    
+    dialogRef.afterClosed().subscribe(result => {
+      
+      if (result) {
+        // If result is not null, the user created a playlist
+        console.log('Song added to playlist');
+     
+      }
+    });
   }
-}
+ 
 }

@@ -22,6 +22,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           if (error.status === 401) {
             // go to login
             // and/or toast error
+            console.log("go to login");
           }
           if (error.status === 500) {
             console.error('Server error');
